@@ -1,0 +1,16 @@
+/usr/lib/perl5/site_perl/5.8.8/Net/SMPP.pm
+/usr/lib/perl5/site_perl/5.8.8/Net/bind-hammer.pl
+/usr/lib/perl5/site_perl/5.8.8/Net/esme-hammer.pl
+/usr/lib/perl5/site_perl/5.8.8/Net/esme-rec.pl
+/usr/lib/perl5/site_perl/5.8.8/Net/esme.pl
+/usr/lib/perl5/site_perl/5.8.8/Net/sendmessage.pl
+/usr/lib/perl5/site_perl/5.8.8/Net/smsc.pl
+/usr/share/man/man3/Net::SMPP.3pm
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/SMPP.pm
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/bind-hammer.pl
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/esme-hammer.pl
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/esme-rec.pl
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/esme.pl
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/sendmessage.pl
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/Net/smsc.pl
+/var/www/html/cacti/ionix_integration/lib/man/man3/Net::SMPP.3pm

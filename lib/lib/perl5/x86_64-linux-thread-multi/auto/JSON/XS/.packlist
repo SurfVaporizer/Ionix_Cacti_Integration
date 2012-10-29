@@ -1,0 +1,16 @@
+/usr/bin/json_xs
+/usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi/JSON/XS.pm
+/usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi/JSON/XS/Boolean.pm
+/usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi/auto/JSON/XS/XS.bs
+/usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi/auto/JSON/XS/XS.so
+/usr/share/man/man1/json_xs.1
+/usr/share/man/man3/JSON::XS.3pm
+/usr/share/man/man3/JSON::XS::Boolean.3pm
+/var/www/html/cacti/ionix_integration/lib/bin/json_xs
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/x86_64-linux-thread-multi/JSON/XS.pm
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/x86_64-linux-thread-multi/JSON/XS/Boolean.pm
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/x86_64-linux-thread-multi/auto/JSON/XS/XS.bs
+/var/www/html/cacti/ionix_integration/lib/lib/perl5/x86_64-linux-thread-multi/auto/JSON/XS/XS.so
+/var/www/html/cacti/ionix_integration/lib/man/man1/json_xs.1
+/var/www/html/cacti/ionix_integration/lib/man/man3/JSON::XS.3pm
+/var/www/html/cacti/ionix_integration/lib/man/man3/JSON::XS::Boolean.3pm
