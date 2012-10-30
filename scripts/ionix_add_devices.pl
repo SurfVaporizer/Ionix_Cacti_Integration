@@ -307,6 +307,7 @@ sub usage {
 	print "Usage: $0 <command> (<option>)\n";
 	print "Commands:\n";
 	print "\timport -  import devices from ionix to cacti\n";
+	print "\tclear -  delete devices with no assiciated ds or graphs\n";
 	print "Options:\n";
 	print "\t--force - Force import devices to cacti\n";
 	exit;
