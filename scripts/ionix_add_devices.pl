@@ -81,19 +81,30 @@ my $import_flag = undef;
 my $help = undef;
 my $clear_flag = undef;
 my $force_flag = undef;
+my $add_data_query_flag = undef;
+my $add_graph_template_flag = undef;
 
-if ( @ARGV > 0 ) { GetOptions ("help|?" => \$help, "force" => \$force_flag) or usage(); }
+if ( @ARGV > 0 ) { GetOptions ("help|?" => \$help, "force" => \$force_flag,
+	"data_query_id=s" => \$data_query_id, "host_template_name=s" => \$host_template_name) or usage(); }
+	
 if ($ARGV[0] eq "import") {
 	$import_flag = 1;
 }
 elsif ($ARGV[0] eq "clear") {
 	$clear_flag = 1;
 }
+elsif ($ARGV[0] eq "add_data_query" && $data_query_id && $host_template_name) {
+	$add_data_query_flag = 1;
+}
 else {
 	usage();
 }
 
 if ($debug) { print_log("Debug:", "Start $0 with parameters \"@ARGV\""); }
+
+if ($add_data_query_flag) {
+	add_data_query($data_query_id, $host_template_name);
+}
 
 if ($import_flag) {
 	import_hosts($force_flag);
@@ -102,6 +113,28 @@ if ($import_flag) {
 if ($clear_flag) {
 	clear_hosts();
 }
+
+sub add_data_query {
+	my ($data_query_id, $host_template_name) = @_;
+	
+	# -- get all hosts where host_template = $host_template_name
+	print_log("Info:", "Connecting to DB $db_name with credentials \"$db_username, $db_password,\"");
+	$dbh = dbConnect($db_username, $db_password, $db_name, $db_host, $db_port, $db_type);
+	
+	my $sql = "select id, description from host where host_template_id in (select id from host_template where name = '$host_template_name')";
+	my $ref = xGet_table_hasharr_by_sql($sql);
+	my %cacti_hosts = xArray2Hash($ref, "id");
+	if (keys %cacti_hosts == 0) {
+		if ($debug) { print_log("Error:", "No data found for host template \"$host_template_name\""); }
+		exit;
+	}
+	
+	foreach my $k (keys %cacti_hosts) {
+		my $id = $k;
+		my $cmd = "php $cacti_path". "cli/add_data_query.php --host-id=$id --data-query-id=$data_query_id --reindex-method=1";
+		run_cmd($cmd);
+	}
+} # -- add_data_query
 
 sub clear_hosts {
 	# -- connect to DB
@@ -306,9 +339,12 @@ sub run_cmd {
 sub usage {
 	print "Usage: $0 <command> (<option>)\n";
 	print "Commands:\n";
-	print "\timport -  import devices from ionix to cacti\n";
-	print "\tclear -  delete devices with no assiciated ds or graphs\n";
+	print "\timport -  Import devices from ionix to cacti\n";
+	print "\tclear -  Delete devices with no assiciated ds or graphs\n";
+	print "\tadd_data_query - Associate a Data Query to an existing Host\n";
 	print "Options:\n";
 	print "\t--force - Force import devices to cacti\n";
+	print "\t--data_query_id - Data query id\n";
+	print "\t--host_template_name - Cacti host template name\n";
 	exit;
 }
