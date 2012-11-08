@@ -65,6 +65,9 @@ $pattern_class_methods{"TemperatureSensor"}{find} =  "findTemperatureSensor";
 $pattern_class_methods{"Processor"}{get} =  "getProcessors";
 $pattern_class_methods{"Processor"}{find} =  "findProcessor";
 
+$pattern_class_methods{"Memory"}{get} =  "getMemory";
+$pattern_class_methods{"Memory"}{find} =  "findMemory";
+
 
 if ($hostname eq "" || $pattern_class_name eq "") {
 	print "Error: too few arguments\n";
